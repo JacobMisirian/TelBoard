@@ -1,0 +1,12 @@
+test:test
+test:alert('test')
+test:alert('test');
+test:javascript:alert('test');
+test:alert('test');
+Jacob:testy
+Jacob:testy
+test:&#60;script&#62alert('test');&#60/script&#62
+Jacob:yay
+test:&#60;script type="text/javascript"&#62alert("test");&#60/script&#62
+test:&#60;script type="text/javascript"&#62console.log("test");&#60/script&#62
+test:&#60;script type="text/javascript"&#62window.alert("test");&#60/script&#62
