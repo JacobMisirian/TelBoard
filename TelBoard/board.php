@@ -23,25 +23,24 @@
 	if ($conn->connect_error) {
     		die("Connection failed: " . $conn->connect_error);
 	}
-	$sql = "SELECT nickname, message FROM messages ORDER BY id DESC";
-	$result = $conn->query($sql);
-
-	$counter = 0;
 	$displayed = 0;
-	if ($result->num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
+	$counter = 0;
+	$query = "SELECT nickname, message FROM messages ORDER BY id DESC";
+	if ($stmt = mysqli_prepare($conn, $query)) {
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_bind_result($stmt, $nickname, $message);
+		while (mysqli_stmt_fetch($stmt)) {
 			$counter = $counter + 1;
 			echo "<table border=\"1\">";
 			if ($counter < $max && $counter > $min)
 			{
 				$displayed = $displayed + 1;
 				echo "<tr>";
-        			echo "<td>" . $row["nickname"]. "</td><br><td>" . $row["message"]. "</td></tr><br>";
+        			echo "<td>" . $nickname. "</td><br><td>" . $message. "</td></tr><br>";
 			}
 			echo "</table>";
-    		}
-	} else {
-    		echo "0 results";
+		}
+		mysqli_stmt_close($stmt);
 	}
 	$conn->close();
 

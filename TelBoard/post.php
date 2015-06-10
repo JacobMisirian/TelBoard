@@ -1,16 +1,17 @@
 <html>
+	<head>
+		<title>TelBoard Board</title>
+	</head>
 <body>
 
 	<?php
 	require_once "auth.php";
-	$invalid_characters = array("$", "%", "#", "<", ">", "|");
 	$message = $_GET["message"];
 	$name = $_GET["nickname"];
-	$message = addslashes($message);
-	$name = addslashes($name);
-	$str = str_replace($invalid_characters, " ", $message);
-	$str = str_replace($invalid_characters, " ", $name);
-	$message = mysql_real_escape_string(htmlentities(htmlspecialchars(strip_tags($message))));
+	if ($message == "" || $message == " " || $name == "" || $name == " ") {
+		die("You are not allowed to have empty messages or usernames!");
+	}
+
 	$servername = "localhost";
 	$username = "USERNAME";
 	$password = "PASSWORD";
@@ -23,26 +24,23 @@
     		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "INSERT INTO messages (nickname, message)
-	VALUES ('$name', '$message')";
-
-	if ($conn->query($sql) === TRUE) {
-    		echo "New record created successfully";
-	} else {
-    		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
-
+	$stmt = $conn->prepare("INSERT INTO messages (nickname, message, ip) VALUES (?, ?, ?)");
+	$stmt->bind_param("sss", $name, $message, $ip);
+	$ip = $_SERVER['REMOTE_ADDR'];
+	$stmt->execute();
+	$stmt->close();
 	$conn->close();
 	?>
-<br>
-The message you submitted is: <?php echo $_GET["message"]; ?>
+	<br>
+	The message you submitted is: <?php echo $_GET["message"]; ?>
 
-<script type="text/javascript">
-    window.setTimeout(function(){
+	<script type="text/javascript">
+    		window.setTimeout(function(){
 
-        window.location.href = "http://misiriansoft.com/tel/board.php";
+        	window.location.href = "board.php";
 
-    }, 5000000);
-</script>
+	}, 5);
+	</script>
 </body>
+
 </html>

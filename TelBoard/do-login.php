@@ -12,20 +12,21 @@
         if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
         }
-        $sql = "SELECT username, password FROM users";
-        $result = $conn->query($sql);
-
-        $counter = 0;
-        $displayed = 0;
-        if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-			if ($userEntered == $row["username"] && $userPass == $row["password"]) {
-				$_SESSION["logged_in"] = true;
-				echo "Logged in, redirecting to homepage";
-				echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/\"</script>";
-			}
-		}
+	$query = "SELECT username, password FROM users";
+        if ($stmt = mysqli_prepare($conn, $query)) {
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_bind_result($stmt, $curUser, $curPass);
+                while (mysqli_stmt_fetch($stmt)) {
+                	if ($userEntered == $curUser && $userPass == $curPass) {
+                                $_SESSION["logged_in"] = true;
+                                echo "Logged in, redirecting to homepage";
+			        echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/\"</script>";
+                        }
+                }
+		$_SESSION["logged_in"] = false;
 		echo "Log in was not successful";
 		echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/login.html\"</script>";
+		mysqli_stmt_close($stmt);
+		mysqli_close($conn);
 	}
 ?>
