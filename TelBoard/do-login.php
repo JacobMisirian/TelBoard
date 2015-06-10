@@ -23,7 +23,7 @@
 			        echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/\"</script>";
                         }
                 }
-		$_SESSION["logged_in"] = false;
+
 		echo "Log in was not successful";
 		echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/login.html\"</script>";
 		mysqli_stmt_close($stmt);

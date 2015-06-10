@@ -1,6 +1,9 @@
 <html>
+	<head>
+		<title>Tel Message Board</title>
+	</head>
 <body>
-
+	<?php session_start (); ?>
 	<center>Welcome to Tel, a way to publically tel the world whatever is on your mind!<br><br>
 	<img src="TelBoard.png" height="150px" width="200px"></img></center>
 	

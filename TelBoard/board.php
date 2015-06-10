@@ -36,7 +36,7 @@
 			{
 				$displayed = $displayed + 1;
 				echo "<tr>";
-        			echo "<td>" . $nickname. "</td><br><td>" . $message. "</td></tr><br>";
+        			echo "<td>" . $nickname. "</td><br><td>" . htmlspecialchars($message). "</td></tr><br>";
 			}
 			echo "</table>";
 		}
