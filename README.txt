@@ -1,4 +1,4 @@
-TelBoard is a simple, public chat notification system. To install, first you must
+TelBoard is a simple, public chat system. To install, first you must
 create a mysql database called db_Tel with two tables, messages and users.
 The messages table should be created with:
 CREATE TABLE messages ( id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nickname VARCHAR(30) NOT NULL, message VARCHAR (100) );

@@ -5,7 +5,7 @@
 	require_once "auth.php";
 	$invalid_characters = array("$", "%", "#", "<", ">", "|");
 	$message = $_GET["message"];
-	$name = $_GET["name"];
+	$name = $_GET["nickname"];
 	$message = addslashes($message);
 	$name = addslashes($name);
 	$str = str_replace($invalid_characters, " ", $message);

