@@ -18,6 +18,7 @@
                 mysqli_stmt_bind_result($stmt, $curUser, $curPass);
                 while (mysqli_stmt_fetch($stmt)) {
                 	if ($userEntered == $curUser && $userPass == $curPass) {
+				$_SESSION['user'] = $userEntered;
                                 $_SESSION["logged_in"] = true;
                                 echo "Logged in, redirecting to homepage";
 			        echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/\"</script>";

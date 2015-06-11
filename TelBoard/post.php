@@ -8,7 +8,7 @@
 	session_start();
 	require_once "auth.php";
 	$message = htmlspecialchars($_GET["message"]);
-	$name = $_GET["nickname"];
+	$name = $_GET["nickname"] . " as " . $_SESSION['user'];
 	if ($message == "" || $message == " " || $name == "" || $name == " ") {
 		die("You are not allowed to have empty messages or usernames!");
 	}
@@ -28,6 +28,7 @@
 	$stmt = $conn->prepare("INSERT INTO messages (nickname, message, ip) VALUES (?, ?, ?)");
 	$stmt->bind_param("sss", $name, $message, $ip);
 	$ip = $_SERVER['REMOTE_ADDR'];
+	$replied = "false";
 	$stmt->execute();
 	$stmt->close();
 	$conn->close();
