@@ -21,12 +21,12 @@
 				$_SESSION['user'] = $userEntered;
                                 $_SESSION["logged_in"] = true;
                                 echo "Logged in, redirecting to homepage";
-			        echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/\"</script>";
+			        echo "<script type=\"text/javascript\"> window.location=\"index.php\"</script>";
                         }
                 }
 
 		echo "Log in was not successful";
-		echo "<script type=\"text/javascript\"> window.location=\"http://misiriansoft.com/tel/login.html\"</script>";
+		echo "<script type=\"text/javascript\"> window.location=\"login.php\"</script>";
 		mysqli_stmt_close($stmt);
 		mysqli_close($conn);
 	}

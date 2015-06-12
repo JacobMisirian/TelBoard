@@ -39,30 +39,29 @@
 			{
 				$displayed = $displayed + 1;
 				echo "<tr>";
-		       		echo '<td><a href="do-user.php?user=' . $user . '">' . $nickname. '</a></td><br><td>' . htmlspecialchars($message). '</td></tr><br>';
+		       		echo '<td><a href="do-user.php?user=' . $user . '">' . htmlspecialchars($nickname). '</a></td><br><td>' . htmlspecialchars($message). '</td></tr><br>';
 				echo '<a href="reply.php?id=' . $id . '"><button>Reply</button></a>';
 			}
 			echo "</table>";
+	      		if ($replied == "true") {
+	                     	$rconn = new mysqli($servername, $username, $password, $dbname);
+        	              	$rquery = 'SELECT nickname, message FROM replies WHERE id=' . $id;
+                 	      	if ($rstmt = mysqli_prepare($rconn, $rquery)){
+                        	    	mysqli_stmt_execute($rstmt);
+                              		$rstmt->store_result();
+	                              	mysqli_stmt_bind_result($rstmt, $rnick, $rmsg);
+        	                       	while (mysqli_stmt_fetch($rstmt)) {
+                	                    	echo '<table border="1">';
+                        	            	echo '<tr><td>Replier: ' . $rnick . '</td><td>' . 'Reply: ' . $rmsg . '</td></tr>';
+                                	    	echo '</table>';
+                               		}
+	                           	mysqli_stmt_close($rstmt);
+        	                }
+                	       	$rconn->close();
+            		}
 		}
-		mysqli_stmt_close($stmt);
-
-	      	if ($replied == "true") {
-                     	$rconn = new mysqli($servername, $username, $password, $dbname);
-                      	$rquery = 'SELECT nickname, message FROM replies WHERE id=' . $id;
-                       	if ($rstmt = mysqli_prepare($rconn, $rquery)){
-                            	mysqli_stmt_execute($rstmt);
-                              	$rstmt->store_result();
-                              	mysqli_stmt_bind_result($rstmt, $rnick, $rmsg);
-                               	while (mysqli_stmt_fetch($rstmt)) {
-                                    	echo '<table border="1">';
-                                    	echo '<tr><td>Replier: ' . $rnick . '</td><td>' . 'Reply: ' . $rmsg . '</td></tr>';
-                                    	echo '</table>';
-                               	}
-                           	mysqli_stmt_close($rstmt);
-                        }
-                       	$rconn->close();
-            	}
 	}
+	mysqli_stmt_close($stmt);
 	$conn->close();
 
 	echo "<br><br>";

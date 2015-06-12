@@ -8,7 +8,7 @@
 	<img src="TelBoard.png" height="150px" width="200px"></img></center>
 	
 	<?php if ($_SESSION['logged_in'] != true): ?>
-		<a href="login.html"><button>Login or Register</button></a>
+		<a href="login.php"><button>Login or Register</button></a>
 	<?php endif; ?>
 	
 	<form action="post.php" method="get">

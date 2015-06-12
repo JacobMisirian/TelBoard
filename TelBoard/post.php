@@ -8,7 +8,7 @@
 	session_start();
 	require_once "auth.php";
 	$message = htmlspecialchars($_GET["message"]);
-	$name = $_GET["nickname"] . " as " . $_SESSION['user'];
+	$name = htmlspecialchars($_GET["nickname"] . " as " . $_SESSION['user']);
 	if ($message == "" || $message == " " || $name == "" || $name == " ") {
 		die("You are not allowed to have empty messages or usernames!");
 	}
