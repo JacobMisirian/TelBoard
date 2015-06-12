@@ -25,10 +25,11 @@
     		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$stmt = $conn->prepare("INSERT INTO messages (nickname, message, ip) VALUES (?, ?, ?)");
-	$stmt->bind_param("sss", $name, $message, $ip);
+	$stmt = $conn->prepare("INSERT INTO messages (nickname, message, ip, username) VALUES (?, ?, ?, ?)");
+	$stmt->bind_param("ssss", $name, $message, $ip, $username);
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$replied = "false";
+	$username = $_SESSION['user'];
 	$stmt->execute();
 	$stmt->close();
 	$conn->close();

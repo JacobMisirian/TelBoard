@@ -3,7 +3,6 @@
 	
 	$enteredUsername = $_GET["name"];
         $enteredPassword = hash("sha512", $_GET["password"]);
-	$enteredUsername = mysql_real_escape_string(htmlentities(htmlspecialchars(strip_tags($enteredUsername))));
         $servername = "localhost";
         $username = "USERNAME";
         $password = "PASSWORD";
@@ -32,8 +31,8 @@
 
 	function user_does_not_exist($name){
 		$servername = "localhost";
-	        $username = "root";
-	        $password = "";
+	        $username = "USERNAME";
+	        $password = "PASSWORD";
         	$dbname = "db_Tel";
 		$conn = new mysqli($servername, $username, $password, $dbname);
 		if ($conn->connect_error) {

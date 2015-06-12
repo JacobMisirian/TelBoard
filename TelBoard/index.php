@@ -17,6 +17,7 @@
 	<input type="submit">
 	</form>
 
-	<b>You can view the current board <a href="board.php">here</a>.</b>
+	<b>You can view the current board <a href="board.php">here</a>.</b><br>
+	<b>You can view the users <a href="users.php">here</a>.</b>
 </body>
 </html>
