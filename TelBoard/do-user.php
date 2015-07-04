@@ -20,8 +20,10 @@
 			}
 			//Get the username from the users table where the username is equal to the username.
 			//Basically just a check that the user exists
-			$query = 'SELECT username FROM users WHERE username="' . $_GET['user'] . '"';
+			$query = 'SELECT username FROM users WHERE username=?';
 			if ($stmt = mysqli_prepare($conn, $query)) {
+                                //Bind the parameter of the username to the query
+                                $stmt->bind_param("s", $_GET['user']);
 				//Execute
 				mysqli_stmt_execute($stmt);
 				//Bind the results to the corrisponding variables
@@ -42,8 +44,10 @@
 			//Create a new connection
 			$conn = new mysqli("localhost", "USERNAME", "PASSWORD", "db_Tel");
 			//Get name and message from the messages db that are from the user in question
-			$query = 'SELECT nickname, message FROM messages WHERE username="' . $_GET['user'] . '"';
+			$query = 'SELECT nickname, message FROM messages WHERE username=?';
 			if ($stmt = mysqli_prepare($conn, $query)) {
+                                //Bind the parameter of the username to the query
+                                $stmt->bind_param("s", $_GET['user']);
 				//Execute
 				mysqli_stmt_execute($stmt);
 				//Bind results to corrisponding variables
